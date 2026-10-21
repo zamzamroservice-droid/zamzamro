@@ -52,12 +52,6 @@ export function shapureTexture() {
     ctx.arc(732, 52, 9, 0, Math.PI * 2);
     ctx.lineWidth = 6;
     ctx.stroke();
-    ctx.letterSpacing = '10px';
-    ctx.font = '400 104px Michroma, Jost, sans-serif';
-    ctx.lineWidth = 5;
-    ctx.strokeText('SHAPURE', 1000, 262);
-    ctx.globalAlpha = 0.35;
-    ctx.fillText('SHAPURE', 1000, 262);
   });
 }
 
