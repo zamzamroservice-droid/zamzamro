@@ -1,0 +1,15 @@
+{
+  // Cloudflare Workers — static assets only (no Worker script needed).
+  // Every route has a prerendered index.html in dist/ (see scripts/postbuild-seo.mjs);
+  // anything else falls back to the SPA shell, which renders the 404 page.
+  // Do NOT add a public/_redirects file — it conflicts with this configuration.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zamzamro",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": { "enabled": true }
+}
