@@ -3,6 +3,8 @@
 // capacities, warranties, power ratings and dimensions are left empty unless a creative states
 // them, and render as "Enquire for details". Tamil text (`ta`) mirrors the English exactly.
 
+import photoUploads from './photo-uploads.json' with { type: 'json' };
+
 export type CategoryId = 'home-ro' | 'commercial' | 'solutions';
 export type Lang = 'en' | 'ta';
 
@@ -52,14 +54,28 @@ export interface Product extends ProductText {
   ta: ProductText;
   /** Tags used by the water-source matcher. */
   suits?: { highTds?: boolean; sources?: WaterSourceId[]; business?: boolean };
+  /** Set when photos were added through new-photos/ (ISO time of the newest one). */
+  updatedAt?: string;
+}
+
+/** One photo added through the new-photos/ GitHub upload flow (see scripts/ingest-photos.mjs). */
+export interface PhotoUpload {
+  product: string;
+  src: string;
+  sm: string;
+  alt: string;
+  /** Colour id when the file name started with it, e.g. "pearl-white-…". */
+  colour?: string;
+  addedAt: string;
 }
 
 export type WaterSourceId = 'borewell' | 'tanker' | 'municipal' | 'corporation' | 'open-well' | 'business';
 
-export const categories: { id: CategoryId; label: string; short: string; ta: string; taShort: string }[] = [
-  { id: 'home-ro', label: 'Home RO Purifiers', short: 'Home RO', ta: 'வீட்டு RO சுத்திகரிப்பான்கள்', taShort: 'வீட்டு RO' },
-  { id: 'commercial', label: 'Commercial & Stainless-Steel Systems', short: 'Commercial & SS', ta: 'வணிக & ஸ்டெயின்லெஸ் ஸ்டீல் அமைப்புகள்', taShort: 'வணிக & SS' },
-  { id: 'solutions', label: 'Water & Power Solutions', short: 'Water & Power', ta: 'தண்ணீர் & மின் தீர்வுகள்', taShort: 'தண்ணீர் & மின்' },
+/** `folder` is the category folder name inside new-photos/ (never rename — uploads depend on it). */
+export const categories: { id: CategoryId; label: string; short: string; ta: string; taShort: string; folder: string }[] = [
+  { id: 'home-ro', label: 'Home RO Purifiers', short: 'Home RO', ta: 'வீட்டு RO சுத்திகரிப்பான்கள்', taShort: 'வீட்டு RO', folder: 'home-ro-purifiers' },
+  { id: 'commercial', label: 'Commercial & Stainless-Steel Systems', short: 'Commercial & SS', ta: 'வணிக & ஸ்டெயின்லெஸ் ஸ்டீல் அமைப்புகள்', taShort: 'வணிக & SS', folder: 'commercial-ss-systems' },
+  { id: 'solutions', label: 'Water & Power Solutions', short: 'Water & Power', ta: 'தண்ணீர் & மின் தீர்வுகள்', taShort: 'தண்ணீர் & மின்', folder: 'water-power-solutions' },
 ];
 
 const im = (name: string, alt: string): ProductImage => ({ src: `/images/${name}.webp`, sm: `/images/${name}-sm.webp`, alt });
@@ -92,7 +108,7 @@ const specs = (labels: string[], known: Record<string, [string, string]> = {}): 
   }));
 const STD = ['Purification technology', 'Input water TDS', 'Storage capacity', 'Purification rate', 'Power', 'Dimensions', 'Warranty'];
 
-export const products: Product[] = [
+const catalogue: Product[] = [
   // ── Home RO purifiers ──────────────────────────────────────────────────────
   {
     slug: 'aqua-era-zempure',
@@ -750,6 +766,36 @@ export const products: Product[] = [
     },
   },
 ];
+
+/**
+ * Merge photos uploaded through new-photos/: each product's newest upload becomes its first image
+ * (card, gallery, collection cover), colour-prefixed uploads become that colour's photo, and
+ * recently updated products move to the front of the catalogue (stable order otherwise).
+ */
+function applyUploads(list: Product[], uploads: PhotoUpload[]): Product[] {
+  const byProduct = new Map<string, PhotoUpload[]>();
+  for (const u of uploads) byProduct.set(u.product, [...(byProduct.get(u.product) ?? []), u]);
+  const merged = list.map((p) => {
+    const ups = [...(byProduct.get(p.slug) ?? [])].sort((a, b) => b.addedAt.localeCompare(a.addedAt));
+    if (!ups.length) return p;
+    const colours = p.colours.map((c) => ({ ...c, image: c.image === undefined ? undefined : c.image + ups.length }));
+    const claimed = new Set<string>();
+    ups.forEach((u, i) => {
+      const c = u.colour && !claimed.has(u.colour) ? colours.find((x) => x.id === u.colour) : undefined;
+      if (c) {
+        c.image = i;
+        claimed.add(c.id);
+      }
+    });
+    return { ...p, images: [...ups.map(({ src, sm, alt }) => ({ src, sm, alt })), ...p.images], colours, updatedAt: ups[0].addedAt };
+  });
+  return merged
+    .map((p, i) => ({ p, i }))
+    .sort((a, b) => (b.p.updatedAt ?? '').localeCompare(a.p.updatedAt ?? '') || a.i - b.i)
+    .map((x) => x.p);
+}
+
+export const products: Product[] = applyUploads(catalogue, photoUploads as PhotoUpload[]);
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
 export const featuredFour = ['aqua-2090-raga', 'lx-one-titanium', 'water-pia', 'nile-aqua-jade'].map((s) => getProduct(s)!);

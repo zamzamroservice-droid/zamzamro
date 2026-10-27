@@ -41,6 +41,23 @@ src/
 - Tamil wording for the brand follows the official Tamil business card: **ஜம் ஜம் · தூய குடிநீர் அமைப்பு · என்றும் தூய்மை · ஈரோடு**. The logo wordmark, preloader and business card (About & Contact) switch with the language.
 - URLs, page titles and structured data stay in English for search engines. WhatsApp enquiry messages are always sent in English so the shop receives a consistent format.
 
+## Adding product photos (no code) — GitHub → Cloudflare
+
+Full owner guide: **[new-photos/README.md](new-photos/README.md)**.
+
+1. Upload a JPG/PNG/WEBP into `new-photos/<category>/<product-slug>/` on GitHub (commit to `main`).
+2. `.github/workflows/photos-and-deploy.yml` runs `scripts/ingest-photos.mjs`: resizes to WebP in
+   `public/images/uploads/<slug>/`, adds it to the front of `src/data/photo-uploads.json`, removes the original
+   and commits back to `main`.
+3. `src/data/products.ts` merges those uploads: the newest becomes the product's first image (card, gallery,
+   collection cover, OG image), a file name starting with a colour id (e.g. `pearl-white-…`) becomes that
+   colour's photo, and recently updated products move to the front of "All products".
+4. Cloudflare publishes the site — either via **Workers Builds** connected to this repo, or by the workflow
+   itself when the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets are set.
+
+`npm run photo-folders` recreates the folders and the folder table after you add a product. `npm run photos`
+runs the same ingest locally.
+
 ## How the 3D hero works
 
 - `Hero.tsx` maps scroll progress through a tall section (sticky viewport) to `heroStore.progress`.

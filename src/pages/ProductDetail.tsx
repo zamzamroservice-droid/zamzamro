@@ -23,7 +23,8 @@ export default function ProductDetail() {
   const { t, lang } = useLang();
   const colourParam = params.get('colour');
   const colour = product?.colours.find((c) => c.id === colourParam) ?? product?.colours[0];
-  const [imgIndex, setImgIndex] = useState(colour?.image ?? 0);
+  // Newest photo first, unless the link asked for a specific colour.
+  const [imgIndex, setImgIndex] = useState(colourParam && colour?.image !== undefined ? colour.image : 0);
 
   if (!product) return <NotFound />;
 

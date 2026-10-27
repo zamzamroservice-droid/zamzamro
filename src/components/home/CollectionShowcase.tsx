@@ -21,6 +21,9 @@ const COVER: Record<string, string> = {
 const TILT = [-2.2, 0.6, -0.4, 1.8];
 const DROP = [0, 22, 18, 6];
 
+/** A freshly uploaded photo (new-photos/) takes over the cover; otherwise the editorial creative. */
+const cover = (p: Product) => (p.updatedAt ? p.images[0].sm : (COVER[p.slug] ?? p.images[0].sm));
+
 const label = (p: Product) => (p.series ? `${p.brand} · ${p.series.split(' · ')[0]}` : p.brand);
 
 /** Editorial collection — overlapping, tilted photo cards (desktop) and a swipeable row (mobile). */
@@ -59,7 +62,7 @@ export default function CollectionShowcase() {
               >
                 <div className="relative overflow-hidden">
                   <img
-                    src={COVER[p.slug] ?? p.images[0].sm}
+                    src={cover(p)}
                     alt={p.images[0].alt}
                     loading="lazy"
                     className="aspect-[4/3.1] w-full object-cover transition-transform duration-1000 group-hover:scale-[1.04]"
@@ -103,7 +106,7 @@ export default function CollectionShowcase() {
           {featuredFour.map((p) => (
             <li key={p.slug} className="w-[84%] shrink-0 snap-start sm:w-[46%]">
               <article className="group relative">
-                <img src={COVER[p.slug] ?? p.images[0].sm} alt={p.images[0].alt} loading="lazy" className="aspect-[3/2] w-full object-cover" />
+                <img src={cover(p)} alt={p.images[0].alt} loading="lazy" className="aspect-[3/2] w-full object-cover" />
                 <div className="mt-4 flex items-center justify-between gap-3">
                   <p className="text-[0.66rem] font-medium tracking-[0.24em] text-gold-deep uppercase">{label(p)}</p>
                   <ArrowUpRight className="h-5 w-5 text-mist" aria-hidden />
