@@ -64,7 +64,7 @@ export function productSchema(p: Product) {
     name: fullName(p),
     description: p.summary,
     brand: { '@type': 'Brand', name: p.brand },
-    category: p.category === 'home-ro' ? 'Water purifier' : p.category === 'commercial' ? 'Commercial water purification system' : 'Water & power solution',
+    category: { 'home-ro': 'Water purifier', softener: 'Water softener', commercial: 'Commercial water purification system', solutions: 'Water & power solution' }[p.category],
     url: abs(productPath(p)),
     ...(p.images.length ? { image: p.images.map((i) => abs(i.src)) } : {}),
     ...(p.colours.length ? { color: p.colours.map((c) => c.name).join(', ') } : {}),

@@ -83,6 +83,15 @@ a photo in any other folder is skipped.
 | `new-photos/home-ro-purifiers/clean-water-mountain-water-mt-black` | Clean Water Mountain Water — Mt. Black | `mt-black` |
 | `new-photos/home-ro-purifiers/clean-water-hi-flo` | Clean Water Hi-Flo | `metallic-cherry` |
 | `new-photos/home-ro-purifiers/aqua-roma` | Aqua Roma | `gold` |
+| `new-photos/home-ro-purifiers/domestic-ss-water-purifier` | Domestic Stainless-Steel Water Purifier | `stainless` |
+
+### Home Water Softeners
+
+| Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
+|---|---|---|
+| `new-photos/home-water-softeners/whole-house-water-softener` | Whole-House Water Softener | — |
+| `new-photos/home-water-softeners/home-automatic-water-softener` | Home Automatic Water Softener | — |
+| `new-photos/home-water-softeners/home-water-softener` | Home Water Softener | — |
 
 ### Commercial & Stainless-Steel Systems
 
@@ -91,12 +100,14 @@ a photo in any other folder is skipped.
 | `new-photos/commercial-ss-systems/zamzam-standard-ss-system` | Standard Pure Water System | `stainless` |
 | `new-photos/commercial-ss-systems/zamzam-hot-normal-ss-system` | Hot & Normal Pure Water System | `stainless` |
 | `new-photos/commercial-ss-systems/triple-stage-commercial-ro` | Triple Stage Water Purifier | — |
+| `new-photos/commercial-ss-systems/commercial-water-dispenser-normal-hot-cold` | Commercial Water Dispenser — Normal, Hot & Cold | `stainless` |
+| `new-photos/commercial-ss-systems/commercial-water-dispenser-on-stand` | Commercial Water Dispenser on Stand — Normal, Hot & Cold | `stainless` |
+| `new-photos/commercial-ss-systems/commercial-ro-plant` | Commercial RO Plant System | — |
 
 ### Water & Power Solutions
 
 | Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
 |---|---|---|
-| `new-photos/water-power-solutions/whole-house-water-softener` | Whole-House Water Softener | — |
 | `new-photos/water-power-solutions/automatic-water-level-controller` | Automatic Water Level Controller | — |
 | `new-photos/water-power-solutions/ups-inverter-batteries` | UPS & Inverter Batteries | — |
 

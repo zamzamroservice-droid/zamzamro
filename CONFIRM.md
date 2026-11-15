@@ -18,6 +18,7 @@ Items the website deliberately does **not** guess. Until confirmed they are hidd
 | 13 | Model names not printed on two creatives: “Lexpure RO Purifier” and “Clean Water Purifier Range” are descriptive placeholders | `src/data/products.ts` | Shown as descriptive names |
 | 14 | Tamil translations — have a native speaker review the wording | `src/i18n/dict.ts`, `src/data/*` (`ta` fields) | Live as written |
 | 15 | Aqua Era finishes: Zempure is listed in its two Core finishes (Charcoal Black, Pearl White). The other four finishes (Silk Blue, Silk Beige — Silk badge; Urban Grey, Forest Blue — Elite badge) are listed under “Aqua Era Water Purifier Range”. Confirm model names for the Silk and Elite versions | `src/data/products.ts` | Shown as on the range creative |
+| 16 | New softener, RO-plant and dispenser photos: confirm the installation photos are Zam Zam’s own work (and customers are happy to have them shown), and add capacities / vessel sizes if you want them listed | `src/data/products.ts` | Specs show “Enquire for details” |
 | 12 | Google Business Profile — NAP must match the site exactly | Google Business Profile | Name, address, phone as on business card |
 
 Google note: FAQPage structured data is included because the full Q&A is visible on `/faq`, but Google currently shows FAQ rich results mainly for authoritative government/health sites, so don’t expect them in search results.

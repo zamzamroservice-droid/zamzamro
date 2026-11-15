@@ -5,7 +5,7 @@
 
 import photoUploads from './photo-uploads.json' with { type: 'json' };
 
-export type CategoryId = 'home-ro' | 'commercial' | 'solutions';
+export type CategoryId = 'home-ro' | 'softener' | 'commercial' | 'solutions';
 export type Lang = 'en' | 'ta';
 
 export interface ProductImage {
@@ -74,6 +74,7 @@ export type WaterSourceId = 'borewell' | 'tanker' | 'municipal' | 'corporation' 
 /** `folder` is the category folder name inside new-photos/ (never rename — uploads depend on it). */
 export const categories: { id: CategoryId; label: string; short: string; ta: string; taShort: string; folder: string }[] = [
   { id: 'home-ro', label: 'Home RO Purifiers', short: 'Home RO', ta: 'வீட்டு RO சுத்திகரிப்பான்கள்', taShort: 'வீட்டு RO', folder: 'home-ro-purifiers' },
+  { id: 'softener', label: 'Home Water Softeners', short: 'Softeners', ta: 'வீட்டு வாட்டர் சாஃப்ட்னர்கள்', taShort: 'சாஃப்ட்னர்கள்', folder: 'home-water-softeners' },
   { id: 'commercial', label: 'Commercial & Stainless-Steel Systems', short: 'Commercial & SS', ta: 'வணிக & ஸ்டெயின்லெஸ் ஸ்டீல் அமைப்புகள்', taShort: 'வணிக & SS', folder: 'commercial-ss-systems' },
   { id: 'solutions', label: 'Water & Power Solutions', short: 'Water & Power', ta: 'தண்ணீர் & மின் தீர்வுகள்', taShort: 'தண்ணீர் & மின்', folder: 'water-power-solutions' },
 ];
@@ -619,6 +620,31 @@ const catalogue: Product[] = [
     },
   },
 
+  {
+    slug: 'domestic-ss-water-purifier',
+    name: 'Domestic Stainless-Steel Water Purifier',
+    brand: 'Zam Zam',
+    series: 'Normal & Hot',
+    category: 'home-ro',
+    short: 'Wall-mounted stainless-steel purifier with normal and hot water taps.',
+    summary:
+      'Zam Zam’s wall-mounted stainless-steel water purifier for homes, with separate Normal and Hot water taps, a power switch, and front indicators for Off/On, Cleaning, Safe water and Call service.',
+    technology: ['Normal & hot water', 'Indicator panel', 'Stainless steel'],
+    highlights: ['Separate normal & hot water taps', 'Off/On · Cleaning · Safe water · Call service indicators', 'Power switch', 'Wall-mounted stainless-steel body'],
+    useCases: ['Homes', 'Kitchens', 'Small offices'],
+    colours: [{ id: 'stainless', name: 'Stainless Steel', hex: '#c9ccd0', image: 0 }],
+    images: [im('domestic-ss-water-purifier', 'Zam Zam domestic stainless-steel water purifier with normal and hot taps, mounted on a wall')],
+    specs: specs(STD),
+    source: 'Zam Zam domestic stainless-steel purifier image',
+    ta: {
+      short: 'சாதாரண மற்றும் சூடான நீர் குழாய்களுடன் சுவரில் பொருத்தும் ஸ்டெயின்லெஸ் ஸ்டீல் சுத்திகரிப்பான்.',
+      summary:
+        'வீடுகளுக்கான ஜம் ஜம் சுவரில் பொருத்தும் ஸ்டெயின்லெஸ் ஸ்டீல் சுத்திகரிப்பான் — தனித்தனி Normal, Hot குழாய்கள், பவர் சுவிட்ச், மற்றும் Off/On, Cleaning, Safe water, Call service முன் குறிகாட்டிகள்.',
+      highlights: ['தனித்தனி சாதாரண & சூடான நீர் குழாய்கள்', 'Off/On · Cleaning · Safe water · Call service குறிகாட்டிகள்', 'பவர் சுவிட்ச்', 'சுவரில் பொருத்தும் ஸ்டீல் உடல்'],
+      useCases: ['வீடுகள்', 'சமையலறைகள்', 'சிறிய அலுவலகங்கள்'],
+    },
+  },
+
   // ── Commercial & stainless-steel systems ──────────────────────────────────
   {
     slug: 'zamzam-standard-ss-system',
@@ -694,12 +720,88 @@ const catalogue: Product[] = [
     },
   },
 
-  // ── Water & power solutions ───────────────────────────────────────────────
+  {
+    slug: 'commercial-water-dispenser-normal-hot-cold',
+    name: 'Commercial Water Dispenser — Normal, Hot & Cold',
+    brand: 'Zam Zam',
+    series: 'Stainless Steel',
+    category: 'commercial',
+    short: 'Floor-standing stainless-steel dispenser with normal, hot and cold taps.',
+    summary:
+      'A floor-standing Zam Zam stainless-steel water dispenser with three taps — Normal, Hot and Cold — a full-width drip tray, and Power, Purification and Tank full indicators.',
+    technology: ['Normal · Hot · Cold', 'Purification indicator', 'Stainless steel'],
+    highlights: ['Normal, hot & cold water taps', 'Power · Purification · Tank full indicators', 'Full-width drip tray', 'Floor-standing stainless-steel cabinet'],
+    useCases: ['Offices', 'Schools & colleges', 'Hospitals', 'Factories'],
+    colours: [{ id: 'stainless', name: 'Stainless Steel', hex: '#c9ccd0', image: 0 }],
+    images: [im('ss-dispenser-normal-hot-cold', 'Zam Zam floor-standing stainless-steel water dispenser with normal, hot and cold taps')],
+    specs: specs(STD),
+    featured: true,
+    source: 'Zam Zam stainless-steel dispenser photograph',
+    suits: { business: true, sources: ['business'] },
+    ta: {
+      short: 'சாதாரண, சூடான, குளிர்ந்த நீர் குழாய்களுடன் தரையில் நிற்கும் ஸ்டீல் டிஸ்பென்சர்.',
+      summary: 'Normal, Hot, Cold என மூன்று குழாய்கள், முழு அகல சொட்டுத் தட்டு, Power, Purification, Tank full குறிகாட்டிகளுடன் தரையில் நிற்கும் ஜம் ஜம் ஸ்டெயின்லெஸ் ஸ்டீல் நீர் டிஸ்பென்சர்.',
+      highlights: ['சாதாரண, சூடான & குளிர்ந்த நீர் குழாய்கள்', 'Power · Purification · Tank full குறிகாட்டிகள்', 'முழு அகல சொட்டுத் தட்டு', 'தரையில் நிற்கும் ஸ்டீல் கேபினட்'],
+      useCases: ['அலுவலகங்கள்', 'பள்ளிகள் & கல்லூரிகள்', 'மருத்துவமனைகள்', 'தொழிற்சாலைகள்'],
+    },
+  },
+  {
+    slug: 'commercial-water-dispenser-on-stand',
+    name: 'Commercial Water Dispenser on Stand — Normal, Hot & Cold',
+    brand: 'Zam Zam',
+    series: 'Stainless Steel',
+    category: 'commercial',
+    short: 'Stainless-steel dispenser on legs with normal, hot and cold taps.',
+    summary:
+      'A Zam Zam stainless-steel water dispenser standing on legs, with Normal, Hot and Cold taps in a recessed dispensing bay, a drip tray, and Power on, Purification, Tank full and Out supply indicators.',
+    technology: ['Normal · Hot · Cold', 'Purification indicator', 'Stainless steel'],
+    highlights: ['Normal, hot & cold water taps', 'Power on · Purification · Tank full · Out supply indicators', 'Recessed dispensing bay with drip tray', 'Stainless-steel cabinet on legs'],
+    useCases: ['Offices', 'Showrooms', 'Waiting areas', 'Institutions'],
+    colours: [{ id: 'stainless', name: 'Stainless Steel', hex: '#c9ccd0', image: 0 }],
+    images: [im('ss-dispenser-normal-hot-cold-stand', 'Zam Zam stainless-steel water dispenser on legs with normal, hot and cold taps')],
+    specs: specs(STD),
+    source: 'Zam Zam stainless-steel dispenser image',
+    suits: { business: true, sources: ['business'] },
+    ta: {
+      short: 'சாதாரண, சூடான, குளிர்ந்த நீர் குழாய்களுடன் கால்களில் நிற்கும் ஸ்டீல் டிஸ்பென்சர்.',
+      summary: 'கால்களில் நிற்கும் ஜம் ஜம் ஸ்டெயின்லெஸ் ஸ்டீல் நீர் டிஸ்பென்சர் — உள்ளடங்கிய பகுதியில் Normal, Hot, Cold குழாய்கள், சொட்டுத் தட்டு, மற்றும் Power on, Purification, Tank full, Out supply குறிகாட்டிகள்.',
+      highlights: ['சாதாரண, சூடான & குளிர்ந்த நீர் குழாய்கள்', 'Power on · Purification · Tank full · Out supply குறிகாட்டிகள்', 'சொட்டுத் தட்டுடன் உள்ளடங்கிய பகுதி', 'கால்களில் நிற்கும் ஸ்டீல் கேபினட்'],
+      useCases: ['அலுவலகங்கள்', 'ஷோரூம்கள்', 'காத்திருப்பு பகுதிகள்', 'நிறுவனங்கள்'],
+    },
+  },
+  {
+    slug: 'commercial-ro-plant',
+    name: 'Commercial RO Plant System',
+    brand: 'Zam Zam',
+    series: 'Commercial',
+    category: 'commercial',
+    short: 'Complete RO plant: pre-treatment vessels, RO unit, pump and storage.',
+    summary:
+      'A complete commercial RO plant set-up: pressure vessels with control valves for pre-treatment, a stainless-steel RO unit with gauges and a control panel, filter housings, a high-pressure pump and a storage tank. Capacity and stages are planned for each site.',
+    technology: ['Pre-treatment vessels', 'RO unit', 'High-pressure pump', 'Storage tank'],
+    highlights: ['Pre-treatment pressure vessels with control valves', 'Stainless-steel RO unit with gauges & control panel', 'Filter housings and high-pressure pump', 'Storage tank', 'Designed for each site after a water check'],
+    useCases: ['Factories', 'Hotels & restaurants', 'Schools & colleges', 'Apartment complexes', 'Water businesses'],
+    colours: [],
+    images: [im('commercial-ro-plant', 'Commercial RO plant with pre-treatment vessels, RO unit, pump and storage tank')],
+    specs: specs(['Purification technology', 'Input water TDS', 'Purification rate', 'Storage capacity', 'Power', 'Warranty']),
+    featured: true,
+    source: 'Commercial RO plant photograph',
+    suits: { business: true, highTds: true, sources: ['business', 'borewell'] },
+    ta: {
+      short: 'முழுமையான RO பிளான்ட்: முன் சுத்திகரிப்பு கலன்கள், RO யூனிட், பம்ப், சேமிப்பு.',
+      summary:
+        'முழுமையான வணிக RO பிளான்ட் அமைப்பு: முன் சுத்திகரிப்புக்கு கட்டுப்பாட்டு வால்வுகளுடன் அழுத்தக் கலன்கள், கேஜ்கள் மற்றும் கட்டுப்பாட்டு பேனலுடன் ஸ்டீல் RO யூனிட், ஃபில்டர் ஹவுசிங்குகள், உயர் அழுத்த பம்ப், சேமிப்பு டேங்க். கொள்ளளவும் நிலைகளும் ஒவ்வொரு இடத்திற்கும் ஏற்ப திட்டமிடப்படும்.',
+      highlights: ['கட்டுப்பாட்டு வால்வுகளுடன் முன் சுத்திகரிப்பு கலன்கள்', 'கேஜ்கள் & கட்டுப்பாட்டு பேனலுடன் ஸ்டீல் RO யூனிட்', 'ஃபில்டர் ஹவுசிங்குகள் & உயர் அழுத்த பம்ப்', 'சேமிப்பு டேங்க்', 'நீர் பரிசோதனைக்குப் பின் இடத்திற்கேற்ற வடிவமைப்பு'],
+      useCases: ['தொழிற்சாலைகள்', 'ஹோட்டல்கள் & உணவகங்கள்', 'பள்ளிகள் & கல்லூரிகள்', 'அடுக்குமாடி வளாகங்கள்', 'நீர் வணிகங்கள்'],
+    },
+  },
+
+  // ── Home water softeners ──────────────────────────────────────────────────
   {
     slug: 'whole-house-water-softener',
     name: 'Whole-House Water Softener',
     brand: 'Zam Zam',
-    category: 'solutions',
+    category: 'softener',
     short: 'Softener vessel, brine tank and pre-filter for the whole home.',
     summary:
       'A softener set-up with a softener vessel, brine tank and pre-filter, plumbed into the home supply. Softeners address water hardness (the cause of white scale), which is different from what an RO purifier does — ask us which one your water needs.',
@@ -707,7 +809,10 @@ const catalogue: Product[] = [
     highlights: ['Whole-house set-up', 'Softener vessel with brine tank', 'Pre-filter stage', 'Neat wall plumbing'],
     useCases: ['Independent houses', 'Villas', 'Borewell supply'],
     colours: [],
-    images: [im('water-softener-installation', 'Whole-house water softener with brine tank and pre-filter')],
+    images: [
+      im('home-water-softener-terrace', 'Whole-house water softener with brine tank and pre-filter installed on a terrace'),
+      im('water-softener-installation', 'Whole-house water softener with brine tank and pre-filter'),
+    ],
     specs: specs(['Vessel size', 'Flow rate', 'Regeneration', 'Warranty']),
     featured: true,
     source: 'Water softener creative',
@@ -719,6 +824,60 @@ const catalogue: Product[] = [
       useCases: ['தனி வீடுகள்', 'வில்லாக்கள்', 'போர்வெல் நீர்'],
     },
   },
+  {
+    slug: 'home-automatic-water-softener',
+    name: 'Home Automatic Water Softener',
+    brand: 'Zam Zam',
+    series: 'Automatic',
+    category: 'softener',
+    short: 'Softener vessel with a digital control valve, brine tank and pre-filter.',
+    summary:
+      'An automatic home water softener: a softener vessel topped with a digital control valve, a brine tank and a pre-filter housing with a pressure gauge, plumbed neatly into the home supply. Hardness should be checked first so the set-up suits your water.',
+    technology: ['Digital control valve', 'Brine tank', 'Pre-filter with gauge'],
+    highlights: ['Digital control valve on the softener vessel', 'Brine tank', 'Pre-filter housing with pressure gauge', 'Neat indoor or outdoor installation'],
+    useCases: ['Independent houses', 'Villas', 'Borewell supply'],
+    colours: [],
+    images: [
+      im('home-automatic-water-softener', 'Home automatic water softener with digital control valve, brine tank and pre-filter'),
+      im('home-water-softener-terrace', 'Automatic water softener installed on a terrace'),
+    ],
+    specs: specs(['Vessel size', 'Flow rate', 'Regeneration', 'Warranty']),
+    featured: true,
+    source: 'Home water softener installation photographs',
+    suits: { sources: ['borewell', 'open-well'] },
+    ta: {
+      short: 'டிஜிட்டல் கட்டுப்பாட்டு வால்வுடன் சாஃப்ட்னர் கலன், உப்புநீர் டேங்க், முன் ஃபில்டர்.',
+      summary:
+        'வீட்டுக்கான தானியங்கி வாட்டர் சாஃப்ட்னர்: டிஜிட்டல் கட்டுப்பாட்டு வால்வுடன் சாஃப்ட்னர் கலன், உப்புநீர் டேங்க், அழுத்த கேஜுடன் முன் ஃபில்டர் — வீட்டு நீர் இணைப்பில் நேர்த்தியாகப் பொருத்தப்படும். உங்கள் நீருக்கு ஏற்றதா என முதலில் கடினத்தன்மையைப் பரிசோதிக்க வேண்டும்.',
+      highlights: ['சாஃப்ட்னர் கலனில் டிஜிட்டல் கட்டுப்பாட்டு வால்வு', 'உப்புநீர் டேங்க்', 'அழுத்த கேஜுடன் முன் ஃபில்டர்', 'உள்ளே அல்லது வெளியே நேர்த்தியான நிறுவல்'],
+      useCases: ['தனி வீடுகள்', 'வில்லாக்கள்', 'போர்வெல் நீர்'],
+    },
+  },
+  {
+    slug: 'home-water-softener',
+    name: 'Home Water Softener',
+    brand: 'Zam Zam',
+    category: 'softener',
+    short: 'Compact softener set-up with brine tank and a Big Blue pre-filter.',
+    summary:
+      'A compact home water softener: a softener vessel with a control head, a brine tank and a 20" Big Blue pre-filter housing, fitted into the home’s water line. Ask for a hardness check to choose the right size.',
+    technology: ['Softener vessel', 'Brine tank', '20" Big Blue pre-filter'],
+    highlights: ['Softener vessel with control head', 'Brine tank', '20" Big Blue pre-filter housing', 'Compact footprint'],
+    useCases: ['Homes', 'Apartments with borewell supply'],
+    colours: [],
+    images: [im('home-water-softener', 'Home water softener with brine tank and Big Blue pre-filter')],
+    specs: specs(['Vessel size', 'Flow rate', 'Regeneration', 'Warranty']),
+    source: 'Home water softener installation photograph',
+    suits: { sources: ['borewell', 'open-well'] },
+    ta: {
+      short: 'உப்புநீர் டேங்க் மற்றும் Big Blue முன் ஃபில்டருடன் கச்சிதமான சாஃப்ட்னர்.',
+      summary: 'கச்சிதமான வீட்டு வாட்டர் சாஃப்ட்னர்: கட்டுப்பாட்டுத் தலையுடன் சாஃப்ட்னர் கலன், உப்புநீர் டேங்க், 20" Big Blue முன் ஃபில்டர் — வீட்டு நீர் இணைப்பில் பொருத்தப்படும். சரியான அளவைத் தேர்வு செய்ய கடினத்தன்மை பரிசோதனை கேளுங்கள்.',
+      highlights: ['கட்டுப்பாட்டுத் தலையுடன் சாஃப்ட்னர் கலன்', 'உப்புநீர் டேங்க்', '20" Big Blue முன் ஃபில்டர்', 'கச்சிதமான அளவு'],
+      useCases: ['வீடுகள்', 'போர்வெல் நீர் உள்ள அடுக்குமாடிகள்'],
+    },
+  },
+
+  // ── Water & power solutions ───────────────────────────────────────────────
   {
     slug: 'automatic-water-level-controller',
     name: 'Automatic Water Level Controller',
