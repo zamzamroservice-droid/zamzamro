@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { BatteryCharging, Building2, Droplets, Filter, Gauge, ShoppingBag, Sparkles, Waves, Wrench } from 'lucide-react';
+import { BatteryCharging, Building2, Droplets, Factory, Filter, Gauge, ShoppingBag, Sparkles, Waves, Wrench } from 'lucide-react';
 import type { Lang } from './products';
 
 export interface ServiceText {
@@ -81,17 +81,31 @@ export const services: Service[] = [
     },
   },
   {
+    id: 'ro-plant',
+    name: 'Commercial RO Plant',
+    icon: Factory,
+    description: 'Complete commercial RO plants — pre-treatment, RO unit with control panel, pump and storage — planned, installed and serviced for your site.',
+    details: ['Water check and site visit first', 'Pre-treatment, RO unit, pump & storage tank', 'Installation, testing & service'],
+    image: '/images/commercial-ro-plant-installation-sm.webp',
+    productSlug: 'commercial-ro-plant',
+    ta: {
+      name: 'வணிக RO பிளான்ட்',
+      description: 'முழுமையான வணிக RO பிளான்ட்கள் — முன் சுத்திகரிப்பு, கட்டுப்பாட்டு பேனலுடன் RO யூனிட், பம்ப், சேமிப்பு — உங்கள் இடத்திற்கேற்ப திட்டமிட்டு, நிறுவி, சர்வீஸ் செய்கிறோம்.',
+      details: ['முதலில் நீர் பரிசோதனை & இட வருகை', 'முன் சுத்திகரிப்பு, RO யூனிட், பம்ப் & சேமிப்பு டேங்க்', 'நிறுவல், சோதனை & சர்வீஸ்'],
+    },
+  },
+  {
     id: 'commercial',
     name: 'Commercial & SS Systems',
     icon: Building2,
-    description: 'Stainless-steel pure water systems and triple-stage purifiers for offices, schools, clinics and businesses.',
-    details: ['Standard and Hot & Normal SS systems', 'Triple-stage commercial purifier', 'Site visit to plan the set-up'],
-    image: '/images/zamzam-ss-hot-normal-photo-sm.webp',
-    productSlug: 'zamzam-standard-ss-system',
+    description: 'Stainless-steel pure water systems and normal, hot & cold water dispensers for offices, schools, clinics and businesses.',
+    details: ['Standard and Hot & Normal SS systems', 'Normal, hot & cold water dispensers', 'Site visit to plan the set-up'],
+    image: '/images/ss-dispenser-normal-hot-cold-sm.webp',
+    productSlug: 'commercial-water-dispenser-normal-hot-cold',
     ta: {
       name: 'வணிக & ஸ்டீல் அமைப்புகள்',
-      description: 'அலுவலகங்கள், பள்ளிகள், கிளினிக்குகள், வணிகங்களுக்கான ஸ்டெயின்லெஸ் ஸ்டீல் தூய நீர் அமைப்புகள் மற்றும் மூன்று நிலை சுத்திகரிப்பான்கள்.',
-      details: ['Standard மற்றும் Hot & Normal ஸ்டீல் அமைப்புகள்', 'மூன்று நிலை வணிக சுத்திகரிப்பான்', 'அமைப்பைத் திட்டமிட இட வருகை'],
+      description: 'அலுவலகங்கள், பள்ளிகள், கிளினிக்குகள், வணிகங்களுக்கான ஸ்டெயின்லெஸ் ஸ்டீல் தூய நீர் அமைப்புகள் மற்றும் சாதாரண, சூடான, குளிர்ந்த நீர் டிஸ்பென்சர்கள்.',
+      details: ['Standard மற்றும் Hot & Normal ஸ்டீல் அமைப்புகள்', 'சாதாரண, சூடான & குளிர்ந்த நீர் டிஸ்பென்சர்கள்', 'அமைப்பைத் திட்டமிட இட வருகை'],
     },
   },
   {

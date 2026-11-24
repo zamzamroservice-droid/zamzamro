@@ -99,6 +99,7 @@ const v4 = {
   'ss-dispenser-normal-hot-cold-stand.webp': 'ss-dispenser-normal-hot-cold-stand',
   'commercial-ro-plant.webp': 'commercial-ro-plant',
   'domestic-ss-water-purifier.webp': 'domestic-ss-water-purifier',
+  'commercial-ro-plant-installation.webp': 'commercial-ro-plant-installation',
 };
 for (const [file, name] of Object.entries(v4)) await photo(`v4/${file}`, name, 1400, { flatten: file.endsWith('.png') });
 

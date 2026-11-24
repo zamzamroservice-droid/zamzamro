@@ -5,7 +5,7 @@
 
 import photoUploads from './photo-uploads.json' with { type: 'json' };
 
-export type CategoryId = 'home-ro' | 'softener' | 'commercial' | 'solutions';
+export type CategoryId = 'home-ro' | 'softener' | 'ro-plant' | 'commercial' | 'level-controller' | 'solutions';
 export type Lang = 'en' | 'ta';
 
 export interface ProductImage {
@@ -75,8 +75,10 @@ export type WaterSourceId = 'borewell' | 'tanker' | 'municipal' | 'corporation' 
 export const categories: { id: CategoryId; label: string; short: string; ta: string; taShort: string; folder: string }[] = [
   { id: 'home-ro', label: 'Home RO Purifiers', short: 'Home RO', ta: 'வீட்டு RO சுத்திகரிப்பான்கள்', taShort: 'வீட்டு RO', folder: 'home-ro-purifiers' },
   { id: 'softener', label: 'Home Water Softeners', short: 'Softeners', ta: 'வீட்டு வாட்டர் சாஃப்ட்னர்கள்', taShort: 'சாஃப்ட்னர்கள்', folder: 'home-water-softeners' },
+  { id: 'ro-plant', label: 'Commercial RO Plants', short: 'RO Plants', ta: 'வணிக RO பிளான்ட்கள்', taShort: 'RO பிளான்ட்கள்', folder: 'commercial-ro-plants' },
   { id: 'commercial', label: 'Commercial & Stainless-Steel Systems', short: 'Commercial & SS', ta: 'வணிக & ஸ்டெயின்லெஸ் ஸ்டீல் அமைப்புகள்', taShort: 'வணிக & SS', folder: 'commercial-ss-systems' },
-  { id: 'solutions', label: 'Water & Power Solutions', short: 'Water & Power', ta: 'தண்ணீர் & மின் தீர்வுகள்', taShort: 'தண்ணீர் & மின்', folder: 'water-power-solutions' },
+  { id: 'level-controller', label: 'Automatic Water Level Controllers', short: 'Level Controllers', ta: 'தானியங்கி நீர்மட்ட கண்ட்ரோலர்கள்', taShort: 'நீர்மட்ட கண்ட்ரோலர்', folder: 'water-level-controllers' },
+  { id: 'solutions', label: 'UPS & Inverter Batteries', short: 'UPS Batteries', ta: 'UPS & இன்வெர்ட்டர் பேட்டரிகள்', taShort: 'UPS பேட்டரிகள்', folder: 'water-power-solutions' },
 ];
 
 const im = (name: string, alt: string): ProductImage => ({ src: `/images/${name}.webp`, sm: `/images/${name}-sm.webp`, alt });
@@ -701,7 +703,7 @@ const catalogue: Product[] = [
     name: 'Triple Stage Water Purifier',
     brand: 'Zam Zam',
     series: 'Commercial',
-    category: 'commercial',
+    category: 'ro-plant',
     short: 'Three-stage filtration for high-demand spaces.',
     summary: 'A frame-mounted system with three large filter housings. Listed features: 3-stage filtration, removes impurities, improves water quality, safe & healthy water.',
     technology: ['3-stage filtration'],
@@ -774,15 +776,18 @@ const catalogue: Product[] = [
     name: 'Commercial RO Plant System',
     brand: 'Zam Zam',
     series: 'Commercial',
-    category: 'commercial',
+    category: 'ro-plant',
     short: 'Complete RO plant: pre-treatment vessels, RO unit, pump and storage.',
     summary:
-      'A complete commercial RO plant set-up: pressure vessels with control valves for pre-treatment, a stainless-steel RO unit with gauges and a control panel, filter housings, a high-pressure pump and a storage tank. Capacity and stages are planned for each site.',
+      'A complete commercial RO plant set-up: a pre-treatment pressure vessel with a control valve, a stainless-steel RO unit with a digital control panel, gauges and flow meters, filter housings, a high-pressure pump and a storage tank (shown here on a raised stand). Capacity and stages are planned for each site.',
     technology: ['Pre-treatment vessels', 'RO unit', 'High-pressure pump', 'Storage tank'],
-    highlights: ['Pre-treatment pressure vessels with control valves', 'Stainless-steel RO unit with gauges & control panel', 'Filter housings and high-pressure pump', 'Storage tank', 'Designed for each site after a water check'],
+    highlights: ['Pre-treatment pressure vessels with control valves', 'Stainless-steel RO unit with digital control panel, gauges & flow meters', 'Filter housings and high-pressure pump', 'Storage tank', 'Designed for each site after a water check'],
     useCases: ['Factories', 'Hotels & restaurants', 'Schools & colleges', 'Apartment complexes', 'Water businesses'],
     colours: [],
-    images: [im('commercial-ro-plant', 'Commercial RO plant with pre-treatment vessels, RO unit, pump and storage tank')],
+    images: [
+      im('commercial-ro-plant-installation', 'Commercial RO plant installation with RO unit, digital control panel, pre-treatment vessel, pump and overhead storage tank'),
+      im('commercial-ro-plant', 'Commercial RO plant with pre-treatment vessels, RO unit, pump and storage tank'),
+    ],
     specs: specs(['Purification technology', 'Input water TDS', 'Purification rate', 'Storage capacity', 'Power', 'Warranty']),
     featured: true,
     source: 'Commercial RO plant photograph',
@@ -791,7 +796,7 @@ const catalogue: Product[] = [
       short: 'முழுமையான RO பிளான்ட்: முன் சுத்திகரிப்பு கலன்கள், RO யூனிட், பம்ப், சேமிப்பு.',
       summary:
         'முழுமையான வணிக RO பிளான்ட் அமைப்பு: முன் சுத்திகரிப்புக்கு கட்டுப்பாட்டு வால்வுகளுடன் அழுத்தக் கலன்கள், கேஜ்கள் மற்றும் கட்டுப்பாட்டு பேனலுடன் ஸ்டீல் RO யூனிட், ஃபில்டர் ஹவுசிங்குகள், உயர் அழுத்த பம்ப், சேமிப்பு டேங்க். கொள்ளளவும் நிலைகளும் ஒவ்வொரு இடத்திற்கும் ஏற்ப திட்டமிடப்படும்.',
-      highlights: ['கட்டுப்பாட்டு வால்வுகளுடன் முன் சுத்திகரிப்பு கலன்கள்', 'கேஜ்கள் & கட்டுப்பாட்டு பேனலுடன் ஸ்டீல் RO யூனிட்', 'ஃபில்டர் ஹவுசிங்குகள் & உயர் அழுத்த பம்ப்', 'சேமிப்பு டேங்க்', 'நீர் பரிசோதனைக்குப் பின் இடத்திற்கேற்ற வடிவமைப்பு'],
+      highlights: ['கட்டுப்பாட்டு வால்வுகளுடன் முன் சுத்திகரிப்பு கலன்கள்', 'டிஜிட்டல் கட்டுப்பாட்டு பேனல், கேஜ்கள் & ஃப்ளோ மீட்டர்களுடன் ஸ்டீல் RO யூனிட்', 'ஃபில்டர் ஹவுசிங்குகள் & உயர் அழுத்த பம்ப்', 'சேமிப்பு டேங்க்', 'நீர் பரிசோதனைக்குப் பின் இடத்திற்கேற்ற வடிவமைப்பு'],
       useCases: ['தொழிற்சாலைகள்', 'ஹோட்டல்கள் & உணவகங்கள்', 'பள்ளிகள் & கல்லூரிகள்', 'அடுக்குமாடி வளாகங்கள்', 'நீர் வணிகங்கள்'],
     },
   },
@@ -882,14 +887,18 @@ const catalogue: Product[] = [
     slug: 'automatic-water-level-controller',
     name: 'Automatic Water Level Controller',
     brand: 'Zam Zam',
-    category: 'solutions',
+    category: 'level-controller',
     short: 'Smart control · Save water · Save life.',
     summary: 'Automatic pump control for your water tank. The controller panel shows power, tank full, tank low, motor on and dry-run/fault status. Features as listed on the product creative are below.',
     technology: ['Automatic pump control', 'Level sensors'],
     highlights: ['Automatic water level control', 'Dry run protection', 'Overflow protection', 'Easy installation', 'High accuracy sensors', 'Suitable for all pumps', 'Energy saving', 'Durable & reliable'],
     useCases: ['Overhead tanks', 'Sumps', 'Homes & apartments', 'Businesses'],
     colours: [],
-    images: [im('automatic-water-level-controller', 'Automatic water tank level controller with pump and tank'), im('water-level-controller-and-ss-systems', 'Automatic water level controller features creative')],
+    images: [
+      im('automatic-water-level-controller', 'Automatic water tank level controller with pump and tank'),
+      im('commercial-ro-plant-installation', 'Water system installation by Zam Zam with storage tank, pump and wall-mounted controls'),
+      im('water-level-controller-and-ss-systems', 'Automatic water level controller features creative'),
+    ],
     specs: [
       { label: 'Panel indicators', value: 'Power, Tank full, Tank low, Motor on, Dry run / Fault', ta: { label: 'பேனல் குறிகாட்டிகள்', value: 'Power, Tank full, Tank low, Motor on, Dry run / Fault' } },
       ...specs(['Pump rating', 'Sensor type', 'Warranty']),

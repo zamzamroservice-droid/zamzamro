@@ -93,22 +93,32 @@ a photo in any other folder is skipped.
 | `new-photos/home-water-softeners/home-automatic-water-softener` | Home Automatic Water Softener | — |
 | `new-photos/home-water-softeners/home-water-softener` | Home Water Softener | — |
 
+### Commercial RO Plants
+
+| Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
+|---|---|---|
+| `new-photos/commercial-ro-plants/triple-stage-commercial-ro` | Triple Stage Water Purifier | — |
+| `new-photos/commercial-ro-plants/commercial-ro-plant` | Commercial RO Plant System | — |
+
 ### Commercial & Stainless-Steel Systems
 
 | Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
 |---|---|---|
 | `new-photos/commercial-ss-systems/zamzam-standard-ss-system` | Standard Pure Water System | `stainless` |
 | `new-photos/commercial-ss-systems/zamzam-hot-normal-ss-system` | Hot & Normal Pure Water System | `stainless` |
-| `new-photos/commercial-ss-systems/triple-stage-commercial-ro` | Triple Stage Water Purifier | — |
 | `new-photos/commercial-ss-systems/commercial-water-dispenser-normal-hot-cold` | Commercial Water Dispenser — Normal, Hot & Cold | `stainless` |
 | `new-photos/commercial-ss-systems/commercial-water-dispenser-on-stand` | Commercial Water Dispenser on Stand — Normal, Hot & Cold | `stainless` |
-| `new-photos/commercial-ss-systems/commercial-ro-plant` | Commercial RO Plant System | — |
 
-### Water & Power Solutions
+### Automatic Water Level Controllers
 
 | Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
 |---|---|---|
-| `new-photos/water-power-solutions/automatic-water-level-controller` | Automatic Water Level Controller | — |
+| `new-photos/water-level-controllers/automatic-water-level-controller` | Automatic Water Level Controller | — |
+
+### UPS & Inverter Batteries
+
+| Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
+|---|---|---|
 | `new-photos/water-power-solutions/ups-inverter-batteries` | UPS & Inverter Batteries | — |
 
 ## Step 4 — Upload to GitHub
