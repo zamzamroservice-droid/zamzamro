@@ -100,6 +100,8 @@ const SPEC_TA: Record<string, string> = {
   'Sensor type': 'சென்சார் வகை',
   Brands: 'பிராண்டுகள்',
   Capacity: 'கொள்ளளவு',
+  'Cable length': 'கேபிள் நீளம்',
+  'Switch rating': 'சுவிட்ச் ரேட்டிங்',
 };
 
 /** Spec rows — values only where the brand creative states them; Tamil labels added automatically. */
@@ -909,6 +911,27 @@ const catalogue: Product[] = [
       short: 'ஸ்மார்ட் கட்டுப்பாடு · நீரைச் சேமிப்போம் · உயிரைக் காப்போம்.',
       summary: 'உங்கள் தண்ணீர் டேங்கிற்கான தானியங்கி பம்ப் கட்டுப்பாடு. கட்டுப்பாட்டு பேனல் power, tank full, tank low, motor on, dry-run/fault நிலையைக் காட்டுகிறது. தயாரிப்பு விளம்பரத்தில் பட்டியலிட்ட அம்சங்கள் கீழே.',
       highlights: ['தானியங்கி நீர் மட்டக் கட்டுப்பாடு', 'டிரை ரன் பாதுகாப்பு', 'ஓவர்ஃப்ளோ பாதுகாப்பு', 'எளிதான நிறுவல்', 'துல்லியமான சென்சார்கள்', 'அனைத்து பம்புகளுக்கும் ஏற்றது', 'ஆற்றல் சேமிப்பு', 'நீடித்த, நம்பகமானது'],
+      useCases: ['மேல்நிலை டேங்குகள்', 'சம்ப்கள்', 'வீடுகள் & அடுக்குமாடிகள்', 'வணிகங்கள்'],
+    },
+  },
+  {
+    slug: 'automatic-water-level-float-switch',
+    name: 'Automatic Water Level Float Switch',
+    brand: 'Zam Zam',
+    category: 'level-controller',
+    short: 'Cable float switch for automatic tank level control.',
+    summary: 'A cable-type float switch that hangs in the tank and rises or falls with the water level to switch the pump on or off automatically. Supplied and fitted by Zam Zam for overhead tanks and sumps — cable length, rating and price are shared on enquiry.',
+    technology: ['Float switch', 'Automatic pump control'],
+    highlights: ['Automatic pump on / off with the water level', 'Sealed float body with counterweight', 'Long cable for overhead tanks and sumps', 'Installation by Zam Zam'],
+    useCases: ['Overhead tanks', 'Sumps', 'Homes & apartments', 'Businesses'],
+    colours: [],
+    images: [im('water-level-float-switch', 'Automatic water level float switch with blue and yellow float, counterweight and coiled cable')],
+    specs: specs(['Cable length', 'Switch rating', 'Warranty']),
+    source: 'Float switch product photo',
+    ta: {
+      short: 'தானியங்கி டேங்க் நீர்மட்டக் கட்டுப்பாட்டுக்கான கேபிள் ஃப்ளோட் சுவிட்ச்.',
+      summary: 'டேங்கில் தொங்கவிடப்படும் கேபிள் வகை ஃப்ளோட் சுவிட்ச் — நீர்மட்டத்துடன் மேலும் கீழும் நகர்ந்து பம்பைத் தானாக ஆன் / ஆஃப் செய்கிறது. மேல்நிலை டேங்க் மற்றும் சம்ப்களுக்கு ஜம் ஜம் வழங்கி பொருத்துகிறது — கேபிள் நீளம், ரேட்டிங், விலை விசாரணையில் பகிரப்படும்.',
+      highlights: ['நீர்மட்டத்திற்கேற்ப தானியங்கி பம்ப் ஆன் / ஆஃப்', 'எடைக்கல்லுடன் சீல் செய்யப்பட்ட ஃப்ளோட்', 'மேல்நிலை டேங்க் & சம்ப்களுக்கு நீளமான கேபிள்', 'ஜம் ஜம் நிறுவல்'],
       useCases: ['மேல்நிலை டேங்குகள்', 'சம்ப்கள்', 'வீடுகள் & அடுக்குமாடிகள்', 'வணிகங்கள்'],
     },
   },

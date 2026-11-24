@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { BatteryCharging, Building2, Droplets, Factory, Filter, Gauge, ShoppingBag, Sparkles, Waves, Wrench } from 'lucide-react';
+import { BatteryCharging, Building2, Droplets, Factory, Filter, Gauge, PackageCheck, ShoppingBag, Sparkles, Waves, Wrench } from 'lucide-react';
 import type { Lang } from './products';
 
 export interface ServiceText {
@@ -66,6 +66,19 @@ export const services: Service[] = [
       name: 'ஃபில்டர் & மெம்பிரேன் மாற்றம்',
       description: 'வண்டல், கார்பன், RO மெம்பிரேன் ஆகியவை பயன்பாட்டுக் காலம் முடிந்ததும் மாற்றுதல்.',
       details: ['மாற்றும் இடைவெளி நீர் & பயன்பாட்டைப் பொறுத்தது', 'பொருந்தும் பாகங்கள் விசாரணையில் உறுதி'],
+    },
+  },
+  {
+    id: 'spares',
+    name: 'Spares Available',
+    icon: PackageCheck,
+    description: 'Genuine spare parts for RO purifiers, softeners and water level controllers — filters, membranes, pumps, adapters, valves, float switches and more.',
+    details: ['Spares for most RO brands', 'Fitting by our technician if needed', 'Availability & price confirmed on enquiry'],
+    image: '/images/water-level-float-switch-sm.webp',
+    ta: {
+      name: 'உதிரி பாகங்கள் கிடைக்கும்',
+      description: 'RO சுத்திகரிப்பான், சாஃப்ட்னர், நீர்மட்ட கண்ட்ரோலர்களுக்கான உதிரி பாகங்கள் — ஃபில்டர்கள், மெம்பிரேன், பம்ப், அடாப்டர், வால்வுகள், ஃப்ளோட் சுவிட்ச் மற்றும் பல.',
+      details: ['பெரும்பாலான RO பிராண்டுகளுக்கு உதிரி பாகங்கள்', 'தேவைப்பட்டால் எங்கள் டெக்னீஷியன் பொருத்துவார்', 'இருப்பு & விலை விசாரணையில் உறுதி'],
     },
   },
   {

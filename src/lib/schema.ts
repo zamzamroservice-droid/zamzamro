@@ -11,6 +11,7 @@ export const serviceNames = [
   'RO water purifier installation',
   'RO water purifier repair and service',
   'Filter and membrane replacement',
+  'RO purifier spare parts',
   'Purifier maintenance and sanitisation',
   'Commercial RO plant installation',
   'Commercial and stainless-steel water systems',
