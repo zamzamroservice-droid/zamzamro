@@ -114,6 +114,7 @@ a photo in any other folder is skipped.
 | Put the photo in | It appears on | Colour words (optional, at the start of the file name) |
 |---|---|---|
 | `new-photos/water-level-controllers/automatic-water-level-controller` | Automatic Water Level Controller | — |
+| `new-photos/water-level-controllers/zam-zam-automatic-water-level-controller` | Zam Zam Automatic Water Level Controller | — |
 | `new-photos/water-level-controllers/automatic-water-level-float-switch` | Automatic Water Level Float Switch | — |
 
 ### UPS & Inverter Batteries

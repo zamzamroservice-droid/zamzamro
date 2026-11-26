@@ -101,6 +101,7 @@ const v4 = {
   'domestic-ss-water-purifier.webp': 'domestic-ss-water-purifier',
   'commercial-ro-plant-installation.webp': 'commercial-ro-plant-installation',
   'water-level-float-switch.png': 'water-level-float-switch',
+  'zamzam-level-controller-float.webp': 'zamzam-level-controller-float',
 };
 for (const [file, name] of Object.entries(v4)) await photo(`v4/${file}`, name, 1400, { flatten: file.endsWith('.png') });
 
